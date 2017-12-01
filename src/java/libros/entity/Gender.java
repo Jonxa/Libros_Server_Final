@@ -12,7 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
-  *Entidad que se ocupa de almacenar los generos de nuestros libros
+  *Entity class to store the genders from our books.
+  * <ul>
+  * <li><strong>Codigo:</strong> Auto numeric Integer, to identificate the gender.</li>
+  * <li><strong>Genero:</strong> Name of the gender. </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity

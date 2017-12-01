@@ -13,7 +13,18 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Past;
 
 /**
- *Entidad que se ocupa de almacenar los libros 
+   *Entity class to store our books.
+  * <ul>
+  * <li><strong>isbn:</strong> Code that identifies the book.</li>
+  * <li><strong>titulo:</strong> Name of the book. </li>
+  * <li><strong>autor:</strong> Author of the book. </li>
+  * <li><strong>editorial:</strong> The editorial of the book. </li>
+  * <li><strong>descripcion:</strong> Description of the book. </li>
+  * <li><strong>fechaPublicacion:</strong> Book release date </li>
+  * <li><strong>precio:</strong> Price of the book. </li>
+  * <li><strong>stock:</strong> Number of books available. </li>
+  * <li><strong>genero:</strong> Gender of the book. </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity
