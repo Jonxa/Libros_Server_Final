@@ -12,7 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *Entidad que se ocupa de almacenar las contaseñas de nuestros usuarios
+  *Entity class to store our users passwords. 
+ * <ul>
+  * <li><strong>usuario:</strong> Name that identifies the user.</li>
+  * <li><strong>password:</strong> Password for the user. </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity

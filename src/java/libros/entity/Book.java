@@ -23,7 +23,7 @@ import javax.validation.constraints.Past;
   * <li><strong>fechaPublicacion:</strong> Book release date </li>
   * <li><strong>precio:</strong> Price of the book. </li>
   * <li><strong>stock:</strong> Number of books available. </li>
-  * <li><strong>genero:</strong> Gender of the book. </li>
+  * <li><strong>genero:</strong> {@link Gender } of the book.  </li>
   * </ul>
  * @author Discos S.L Corporation
  */

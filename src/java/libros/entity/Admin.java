@@ -12,7 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *Entidad que se ocupa de almacenar todos los datos de los administradores de la aplicación
+ *Entity class to store our admin. 
+ * <ul>
+  * <li><strong>admin:</strong> Name that identifies the admin.</li>
+  * <li><strong>password:</strong> Password for the admin. </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity

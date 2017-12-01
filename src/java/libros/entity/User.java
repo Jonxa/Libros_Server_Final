@@ -11,7 +11,15 @@ import javax.persistence.Id;
 
 
 /**
- *Entidad que se ocupa de almacenar los usuarios de nuestra aplicacion
+ *Entity class to store our users data. 
+ * <ul>
+  * <li><strong>usuario:</strong> Login name of the user.</li>
+  * <li><strong>nombre:</strong> Name of the user. </li>
+  * <li><strong>apellidos:</strong> Last names of the user. </li>
+  * <li><strong>direccion:</strong> Direction of the user. </li>
+  * <li><strong>telefono:</strong> Phone number of the user </li>
+  * <li><strong>email:</strong> Email of the user </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity
@@ -83,6 +91,11 @@ public class User implements Serializable {
         return hash;
     }
 
+        /**
+     *  Compares the codigo and email
+     * @param object
+     * @return boolean
+     */
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

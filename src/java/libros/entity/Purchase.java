@@ -16,7 +16,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
- *Entidad que se ocupa de almacenar las compras de nuestros usuarios
+  *Entity class to store our purchases. 
+ * <ul>
+  * <li><strong>codigo:</strong> Autonumeric Integer to identify the purchase.</li>
+  * <li><strong>usuario:</strong> {@link User} that purchases . </li>
+  * <li><strong>fechaCompra:</strong> Date of the purchase. </li>
+  * <li><strong>precioTotal:</strong> Total price. </li>
+  * <li><strong>ejemplares:</strong> Collection of {@link Book}s of the purchase </li>
+  * </ul>
  * @author Discos S.L Corporation
  */
 @Entity
