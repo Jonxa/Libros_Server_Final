@@ -16,8 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
- *
- * @author 2dam
+ *Entidad que se ocupa de almacenar las compras de nuestros usuarios
+ * @author Discos S.L Corporation
  */
 @Entity
 public class Purchase implements Serializable {

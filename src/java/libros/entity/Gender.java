@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author 2dam
+  *Entidad que se ocupa de almacenar los generos de nuestros libros
+ * @author Discos S.L Corporation
  */
 @Entity
 public class Gender implements Serializable {
@@ -58,7 +58,7 @@ public class Gender implements Serializable {
             return false;
         }
         Gender other = (Gender) object;
-        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))) {
+        if ((this.codigo == null && other.codigo != null) || (this.codigo != null && !this.codigo.equals(other.codigo))||(this.genero == null && other.genero != null) || (this.genero != null && !this.genero.equals(other.genero))) {
             return false;
         }
         return true;

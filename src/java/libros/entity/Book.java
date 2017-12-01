@@ -8,15 +8,13 @@ package libros.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Past;
 
 /**
- *
- * @author 2dam
+ *Entidad que se ocupa de almacenar los libros 
+ * @author Discos S.L Corporation
  */
 @Entity
 public class Book implements Serializable {

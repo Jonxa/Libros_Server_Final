@@ -12,28 +12,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author 2dam
+ *Entidad que se ocupa de almacenar todos los datos de los administradores de la aplicación
+ * @author Discos S.L Corporation
  */
 @Entity
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    private String id;
+    private String admin;
+    private String password;
 
-    public String getId() {
-        return id;
+    public String getAdmin() {
+        return admin;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+
+    
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (admin != null ? admin.hashCode() : 0);
         return hash;
     }
 
@@ -44,7 +56,7 @@ public class Admin implements Serializable {
             return false;
         }
         Admin other = (Admin) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.admin == null && other.admin != null) || (this.admin != null && !this.admin.equals(other.admin))) {
             return false;
         }
         return true;
@@ -52,7 +64,7 @@ public class Admin implements Serializable {
 
     @Override
     public String toString() {
-        return "libros.entity.Admin[ id=" + id + " ]";
+        return "libros.entity.Admin[ admin=" + admin + " ]";
     }
     
 }

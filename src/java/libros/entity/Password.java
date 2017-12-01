@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- *
- * @author 2dam
+ *Entidad que se ocupa de almacenar las contaseñas de nuestros usuarios
+ * @author Discos S.L Corporation
  */
 @Entity
 public class Password implements Serializable {

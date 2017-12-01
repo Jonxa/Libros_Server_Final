@@ -9,9 +9,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
 /**
- *
- * @author 2dam
+ *Entidad que se ocupa de almacenar los usuarios de nuestra aplicacion
+ * @author Discos S.L Corporation
  */
 @Entity
 public class User implements Serializable {
@@ -22,9 +23,7 @@ public class User implements Serializable {
     private String nombre;
     private String apellidos;
     private String direccion;
-    //anotacion
     private String telefono;
-    //anotacion
     private String email;
 
     public String getUsuario() {
@@ -91,7 +90,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.usuario == null && other.usuario != null) || (this.usuario != null && !this.usuario.equals(other.usuario))) {
+        if ((this.usuario == null && other.usuario != null) || (this.usuario != null && !this.usuario.equals(other.usuario))||(this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
             return false;
         }
         return true;
