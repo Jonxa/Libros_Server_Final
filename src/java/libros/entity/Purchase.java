@@ -39,7 +39,7 @@ public class Purchase implements Serializable {
     private Float precioTotal;
     @ManyToMany
     private Collection<Book> ejemplares;
-    //paco
+    
 
   
 
