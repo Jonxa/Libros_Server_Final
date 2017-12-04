@@ -14,6 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
   *Entity class to store our purchases. 
@@ -27,6 +30,17 @@ import javax.persistence.ManyToOne;
  * @author Discos S.L Corporation
  */
 @Entity
+@Table(name="Ventas",schema="LibrosSL")
+@NamedQueries({
+    @NamedQuery(
+            name="findAllVentas",
+            query="select p from Purchase p order by p.fechaCompra"
+    ),
+     @NamedQuery(
+            name="findVentasByUser",
+            query="select p from Purchase p where p.usuario.usuario:=usuario order by p.fechaCompra"
+    )
+})
 public class Purchase implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,7 +53,7 @@ public class Purchase implements Serializable {
     private Float precioTotal;
     @ManyToMany
     private Collection<Book> ejemplares;
-    //paco
+    
 
   
 
