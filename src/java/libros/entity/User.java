@@ -28,13 +28,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Usuarios",schema="LibrosSL")
 @NamedQueries({
-    @NamedQuery(
-            name="findAllUsuarios",
-            query="select u from User u"
-    ),
+ 
      @NamedQuery(
-            name="findByUsuario",
-            query="select u from User u"
+            name="findUserData",
+            query="select u from User u where u.usuario=:usuario "
     )
 })
 public class User implements Serializable {
