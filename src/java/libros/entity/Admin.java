@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  *Entity class to store our admin. 
@@ -20,6 +22,11 @@ import javax.persistence.Id;
  * @author Discos S.L Corporation
  */
 @Entity
+@Table(name="Admins",schema="LibrosSL")
+@NamedQuery(
+        name="findByCredential",
+        query="Select s from Admin s where s.admin= : admin AND s.password= : password"
+)
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
