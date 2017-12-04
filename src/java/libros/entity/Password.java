@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
   *Entity class to store our users passwords. 
@@ -20,6 +23,17 @@ import javax.persistence.Id;
  * @author Discos S.L Corporation
  */
 @Entity
+@Table(name="Passwords",schema="LibrosSL")
+@NamedQueries({
+    @NamedQuery(
+            name="findAllPasswords",
+            query="select p from Password p"
+    ),
+    @NamedQuery(
+            name="findPasswordByUser",
+            query="select p from Password p where p.usuario=:usuario"
+    )
+})
 public class Password implements Serializable {
 
     private static final long serialVersionUID = 1L;
