@@ -5,7 +5,7 @@
  */
 package libros.ejb;
 
-import exception.CreateLibroException;
+import libros.exception.CreateLibroException;
 import java.util.Collection;
 import javax.ejb.Local;
 

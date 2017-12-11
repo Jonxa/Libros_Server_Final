@@ -5,7 +5,7 @@
  */
 package libros.ejb;
 
-import exception.CreateGeneroException;
+import libros.exception.CreateGeneroException;
 import java.util.Collection;
 import javax.ejb.Stateless;
 
