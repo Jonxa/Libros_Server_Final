@@ -5,28 +5,20 @@
  */
 package libros.ejb;
 
-import libros.exception.GeneroException;
-import java.util.Collection;
 import javax.ejb.Stateless;
+import libros.entity.Admin;
+import libros.exception.AdminNotFoundException;
 
 /**
- * Stateless EJB for managing operations with Gender entities.
+ * Stateless EJB for managing operations with Administrator entities.
  * @author Jon Xabier Gimenez
  */
 @Stateless
-public class GestorGenerosBean implements GestorGenerosBeanLocal {
+public class GestorAdminBean implements GestorAdminBeanLocal {
 
     @Override
-    public Collection getAllGeneros() {
-        return null;
-    }
-
-    @Override
-    public void createGenero() throws GeneroException {
-    }
-
-    @Override
-    public void deleteGenero() throws GeneroException{
+    public Admin getAdmin(String user, String password) throws AdminNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Add business logic below. (Right-click in editor and choose

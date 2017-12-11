@@ -5,7 +5,7 @@
  */
 package libros.ejb;
 
-import libros.exception.CreateGeneroException;
+import libros.exception.GeneroException;
 import java.util.Collection;
 import javax.ejb.Local;
 
@@ -17,6 +17,6 @@ import javax.ejb.Local;
 public interface GestorGenerosBeanLocal {
     
      public Collection getAllGeneros();
-     public void createGenero() throws CreateGeneroException;
-     public void deleteGenero();
+     public void createGenero() throws GeneroException;
+     public void deleteGenero() throws GeneroException;
 }

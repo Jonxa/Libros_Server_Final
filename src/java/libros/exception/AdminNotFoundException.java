@@ -6,24 +6,24 @@
 package libros.exception;
 
 /**
- * This class represents an error or incompletion creating a Book entity operation.
- * @author Jon Xabier Gimenez
+ * This class represents an error on a administrator validation.
+ * @author 2dam
  */
-public class CreateLibroException extends Exception { 
+public class AdminNotFoundException extends Exception {
      /**
-     * Creates a new instance of <code>CreateLibroException</code> without
+     * Creates a new instance of <code>AdminNotFoundException</code> without
      * detail message.
      */
-    public CreateLibroException() {
+    public AdminNotFoundException() {
     }
 
     /**
-     * Constructs an instance of <code>CreateLibroException</code> with the
+     * Constructs an instance of <code>AdminNotFoundException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public CreateLibroException(String msg) {
+    public AdminNotFoundException(String msg) {
         super(msg);
     }
 }

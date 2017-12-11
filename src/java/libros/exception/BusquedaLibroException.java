@@ -6,24 +6,24 @@
 package libros.exception;
 
 /**
- * This class represents an error or incompletion creating a Book entity operation.
+ * This class represents an error on a query into a Book entities.
  * @author Jon Xabier Gimenez
  */
-public class CreateLibroException extends Exception { 
-     /**
-     * Creates a new instance of <code>CreateLibroException</code> without
+public class BusquedaLibroException extends Exception {
+    /**
+     * Creates a new instance of <code>BusquedaLibroException</code> without
      * detail message.
      */
-    public CreateLibroException() {
+    public BusquedaLibroException() {
     }
 
     /**
-     * Constructs an instance of <code>CreateLibroException</code> with the
+     * Constructs an instance of <code>BusquedaLibroException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public CreateLibroException(String msg) {
+    public BusquedaLibroException(String msg) {
         super(msg);
     }
 }

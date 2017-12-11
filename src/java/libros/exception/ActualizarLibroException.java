@@ -6,24 +6,24 @@
 package libros.exception;
 
 /**
- * This class represents an error or incompletion creating a Book entity operation.
+ * This class represents an error or incompletion updating a Book entity operation.
  * @author Jon Xabier Gimenez
  */
-public class CreateLibroException extends Exception { 
+public class ActualizarLibroException extends Exception { 
      /**
-     * Creates a new instance of <code>CreateLibroException</code> without
+     * Creates a new instance of <code>ActualizarLibroException</code> without
      * detail message.
      */
-    public CreateLibroException() {
+    public ActualizarLibroException() {
     }
 
     /**
-     * Constructs an instance of <code>CreateLibroException</code> with the
+     * Constructs an instance of <code>ActualizarLibroException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public CreateLibroException(String msg) {
+    public ActualizarLibroException(String msg) {
         super(msg);
     }
 }

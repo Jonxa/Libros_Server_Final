@@ -70,7 +70,13 @@ public class Book implements Serializable {
     private Gender genero;
 
 
+     public String getIsbn() {
+        return isbn;
+    }
 
+    public void setisbn(String isbn) {
+        this.isbn = isbn;
+    }
     @Override
     public int hashCode() {
         int hash = 0;
