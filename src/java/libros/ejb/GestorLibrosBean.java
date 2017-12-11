@@ -40,16 +40,17 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
      * @throws LibroException 
      */
     @Override
-    public Collection getAllLibros() throws BusquedaLibroException{
+    public Collection <Book> getAllLibros() throws BusquedaLibroException{
         logger.info("Cogiendo todos los libros de la base de datos");
+         Collection <Book> datos;
        try{
-          return em.createNamedQuery("findAllLibros").getResultList();
+          datos= em.createNamedQuery("findAllLibros").getResultList();
        }catch(Exception e){
            logger.severe("Fallo al devolver los libros");
            logger.severe(e.getMessage());
            throw new BusquedaLibroException(e.getMessage());
        }
-   
+       return datos;
     }
 
     @Override
@@ -97,39 +98,45 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     }
 
     @Override
-    public Collection busquedaPorISBN(String isbn)throws BusquedaLibroException {
+    public Collection <Book> busquedaPorISBN(String isbn)throws BusquedaLibroException {
         logger.info("Buscando por isbn");
+         Collection <Book> datos;
         try{
-            return em.createNamedQuery("findLibrosByIsbn").setParameter("isbn", isbn).getResultList();
+            datos= em.createNamedQuery("findLibrosByIsbn").setParameter("isbn", isbn).getResultList();
         }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());
              throw new BusquedaLibroException(e.getMessage());
         }
+        return datos;
       
     }
 
     @Override
-    public Collection busquedaPorTitulo(String titulo) throws BusquedaLibroException {
+    public Collection <Book> busquedaPorTitulo(String titulo) throws BusquedaLibroException {
         logger.info("Buscando por nombre");
+         Collection <Book> datos;
         try{
-            return em.createNamedQuery("findLibrosByTitulo").setParameter("titulo",titulo).getResultList();
+            datos= em.createNamedQuery("findLibrosByTitulo").setParameter("titulo",titulo).getResultList();
         }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());
              throw new BusquedaLibroException(e.getMessage());
         }
+        return datos;
     }
 
     @Override
-    public Collection busquedaPorAutor(String autor) throws BusquedaLibroException {
+    public Collection <Book> busquedaPorAutor(String autor) throws BusquedaLibroException {
          logger.info("Buscando por autor");
+         Collection <Book> datos;
          try{
-            return em.createNamedQuery("findLibrosByAutor").setParameter("autor",autor).getResultList();
+           datos= em.createNamedQuery("findLibrosByAutor").setParameter("autor",autor).getResultList();
          }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());
              throw new BusquedaLibroException(e.getMessage());
         }
+         return datos;
     }
 }

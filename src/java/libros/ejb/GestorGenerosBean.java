@@ -31,15 +31,17 @@ public class GestorGenerosBean implements GestorGenerosBeanLocal {
     private static final Logger logger=Logger.getLogger("libros.ejb.GestorGenerosBean");
 
     @Override
-    public Collection getAllGeneros() throws BusquedaGeneroException{
+    public Collection <Gender> getAllGeneros() throws BusquedaGeneroException{
           logger.info("Cogiendo todos los libros de la base de datos");
+           Collection <Gender> datos;
        try{
-          return em.createNamedQuery("findAllGeneros").getResultList();
+          datos= em.createNamedQuery("findAllGeneros").getResultList();
        }catch(Exception e){
            logger.severe("Fallo al devolver los generos");
            logger.severe(e.getMessage());
            throw new BusquedaGeneroException(e.getMessage());
        }
+       return datos;
     }
 
     @Override

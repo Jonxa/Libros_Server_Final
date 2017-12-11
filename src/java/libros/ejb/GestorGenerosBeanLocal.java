@@ -19,7 +19,7 @@ import libros.exception.BusquedaGeneroException;
 @Local
 public interface GestorGenerosBeanLocal {
     
-     public Collection getAllGeneros() throws BusquedaGeneroException;
+     public Collection <Gender> getAllGeneros() throws BusquedaGeneroException;
      public void createGenero(Gender create) throws CreateGeneroException;
      public void deleteGenero(Gender delete) throws BorrarGeneroException;
 }

@@ -22,12 +22,12 @@ import libros.entity.Book;
 @Local
 public interface GestorLibrosBeanLocal {
     
-    public Collection getAllLibros() throws BusquedaLibroException;
+    public Collection <Book> getAllLibros() throws BusquedaLibroException;
     public void createLibro(Book create) throws CreateLibroException,EntityExistsException ;
     public void deleteLibro(Book delete) throws BorrarLibroException;
     public void updateLibro(Book update) throws ActualizarLibroException;
-    public Collection busquedaPorISBN(String isbn) throws BusquedaLibroException;
-    public Collection busquedaPorTitulo(String titulo) throws BusquedaLibroException;
-    public Collection busquedaPorAutor(String autor) throws BusquedaLibroException;
+    public Collection <Book> busquedaPorISBN(String isbn) throws BusquedaLibroException;
+    public Collection <Book> busquedaPorTitulo(String titulo) throws BusquedaLibroException;
+    public Collection <Book> busquedaPorAutor(String autor) throws BusquedaLibroException;
     
 }
