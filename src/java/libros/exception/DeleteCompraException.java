@@ -9,22 +9,22 @@ package libros.exception;
  * This class represents an error or incompletion in a Purchase object properties.
  * @author Iker Iglesias
  */
-public class CreateCompraException extends Exception {
+public class DeleteCompraException extends Exception {
 
     /**
-     * Creates a new instance of <code>CreateCompraException</code> without
+     * Creates a new instance of <code>DeleteCompraException</code> without
      * detail message.
      */
-    public CreateCompraException() {
+    public DeleteCompraException() {
     }
 
     /**
-     * Constructs an instance of <code>CreateCompraException</code> with the
+     * Constructs an instance of <code>DeleteCompraException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public CreateCompraException(String msg) {
+    public DeleteCompraException(String msg) {
         super(msg);
     }
 }

@@ -6,25 +6,24 @@
 package libros.exception;
 
 /**
- * This class represents an error or incompletion in a Purchase object properties.
+ * This class represents an error or incompletion in a Password object properties.
  * @author Iker Iglesias
  */
-public class CreateCompraException extends Exception {
-
-    /**
-     * Creates a new instance of <code>CreateCompraException</code> without
+public class PasswordException extends Exception {
+      /**
+     * Creates a new instance of <code>PasswordException</code> without
      * detail message.
      */
-    public CreateCompraException() {
+    public PasswordException() {
     }
 
     /**
-     * Constructs an instance of <code>CreateCompraException</code> with the
+     * Constructs an instance of <code>PasswordException</code> with the
      * specified detail message.
      *
      * @param msg the detail message.
      */
-    public CreateCompraException(String msg) {
+    public PasswordException(String msg) {
         super(msg);
     }
 }

@@ -38,7 +38,7 @@ import javax.persistence.Table;
     ),
      @NamedQuery(
             name="findVentasByUser",
-            query="select p from Purchase p where p.usuario.usuario:=usuario order by p.fechaCompra"
+            query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
     )
 })
 public class Purchase implements Serializable {
