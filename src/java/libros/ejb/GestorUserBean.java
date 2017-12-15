@@ -11,8 +11,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TransactionRequiredException;
 import libros.entity.User;
-import libros.exception.CompraException;
-import libros.exception.CreateCompraException;
 import libros.exception.CreateUserException;
 import libros.exception.DeleteUserException;
 import libros.exception.UpdateUserException;
@@ -20,7 +18,7 @@ import libros.exception.UserException;
 
 /**
  *  Stateless EJB for managing operations with User entities.
- * @author 2dam
+ * @author Iker Iglesias
  */
 @Stateless
 public class GestorUserBean implements GestorUserBeanLocal {
@@ -28,22 +26,37 @@ public class GestorUserBean implements GestorUserBeanLocal {
     @PersistenceContext
     private EntityManager em;
 
-     
+     /**
+      * Method that gets an user
+      * @param user
+      * @param password
+      * @return
+      * @throws UserException 
+      */
     @Override
-    public User getUser(String user, String password) throws UserException {
+    public boolean getUser(String user, String password) throws UserException {
         logger.info("Getting user");
         User us;
+        boolean e=false;
          try{
-          us= (User) em.createNamedQuery("findUserData").setParameter("usuario", user).getResultList();
+          us= (User) em.createNamedQuery("findUserData").setParameter("usuario", user).getSingleResult();
+          if(us!=null){
+              e=true;
+          }
         }
-        catch(Exception e){
+        catch(Exception ex){
             logger.severe("Fallo en la consulta");
-            logger.severe(e.getMessage());
-            throw new UserException(e.getMessage());
+            logger.severe(ex.getMessage());
+            throw new UserException(ex.getMessage());
         }
-         return us;
+         return e;
     }
-
+  
+    /**
+     * Method that creates new users
+     * @param user
+     * @throws CreateUserException 
+     */
     @Override
     public void createUser(User user) throws CreateUserException {
         logger.info("Creating user");
@@ -60,13 +73,23 @@ public class GestorUserBean implements GestorUserBeanLocal {
             throw new CreateUserException(w.getMessage());
         }
     }
-
+   
+    /**
+     * Method that deletes users
+     * @param user
+     * @throws DeleteUserException 
+     */
     @Override
     public void deleteUser(User user) throws DeleteUserException {
         logger.info("Deleting user");
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    /**
+     * Method that updates users
+     * @param user
+     * @throws UpdateUserException 
+     */
     @Override
     public void updateUser(User user) throws UpdateUserException {
         logger.info("Updating user");

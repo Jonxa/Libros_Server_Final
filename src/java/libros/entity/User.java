@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -34,6 +35,8 @@ import javax.persistence.Table;
             query="select u from User u where u.usuario=:usuario "
     )
 })
+
+@XmlRootElement
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

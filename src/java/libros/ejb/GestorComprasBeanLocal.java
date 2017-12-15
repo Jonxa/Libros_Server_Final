@@ -7,7 +7,6 @@ package libros.ejb;
 
 import java.util.Collection;
 import javax.ejb.Local;
-import libros.entity.Book;
 import libros.entity.Purchase;
 import libros.entity.User;
 import libros.exception.CompraException;
@@ -23,6 +22,8 @@ import libros.exception.UpdateCompraException;
 public interface GestorComprasBeanLocal {
 
     public Collection<Purchase> getAllCompras(User usuario) throws CompraException;
+    public Purchase getCompraById(Integer id ) throws CompraException;
+    public User getUserById(String usuario) throws CompraException;
     public void createCompra(Purchase purchases) throws CreateCompraException;
     public void deleteCompra(Purchase purchases) throws DeleteCompraException;
     public void updateCompra(Purchase purchases) throws UpdateCompraException;

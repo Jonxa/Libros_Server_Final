@@ -23,11 +23,26 @@ public class GestorPasswordBean implements GestorPasswordBeanLocal {
     @PersistenceContext
    private EntityManager em;
 
-
+ /**
+  * Method that gets user credentials
+  * @param user
+  * @param password
+  * @return
+  * @throws PasswordException 
+  */
     @Override
     public Password getPassword(String user, String password) throws PasswordException {
         logger.info("Getting user password");
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Password pass = null;
+        try{
+        pass= (Password) em.createNamedQuery("findPasswordByUser").setParameter("usuario", user).setParameter("password", pass).getSingleResult();
+        }
+        catch(Exception e){
+            logger.severe("Fallo en la consulta");
+            logger.severe(e.getMessage());
+            throw new PasswordException(e.getMessage());
+        }
+        return pass;
     }
 
     

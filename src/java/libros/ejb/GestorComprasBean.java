@@ -8,10 +8,8 @@ package libros.ejb;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TransactionRequiredException;
 import libros.entity.Purchase;
 import libros.entity.User;
 import libros.exception.CompraException;
@@ -40,6 +38,7 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
         logger.info("Getting all the purchases");
         Collection <Purchase> datos;
         try{
+          // se busca al usuario a partir del nombre de usuario
         datos=em.createNamedQuery("findVentasByUser").setParameter("usuario", usuario).getResultList();
         }
         catch(Exception e){
@@ -50,7 +49,11 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
         return datos;
     }
    
-    
+    /**
+     * Method that saves user purchases
+     * @param purchases
+     * @throws CreateCompraException 
+     */
     @Override
     public void createCompra(Purchase purchases) throws CreateCompraException {
         logger.info("Doing a purchase");
@@ -65,6 +68,11 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
         }
     }
   
+    /**
+     * Method that deletes user purchases
+     * @param purchases
+     * @throws DeleteCompraException 
+     */
     @Override
     public void deleteCompra(Purchase purchases) throws DeleteCompraException {
          logger.info("Deleting purchase");
@@ -77,18 +85,69 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
             throw new DeleteCompraException(e.getMessage());
         }
     }
-
+  
+    /**
+     * Method that updates user purchases
+     * @param purchases
+     * @throws UpdateCompraException 
+     */
     @Override
     public void updateCompra(Purchase purchases) throws UpdateCompraException {
          logger.info("Updating purchase");
             try{
-              em.merge(purchases);
-              logger.info("Compra modificada");
+              if(em.contains(purchases)){
+                em.merge(purchases);
+                logger.info("Compra modificada");
+              }
+
         }catch(Exception e){
             logger.severe("Error al modificar compra");
             logger.severe(e.getMessage());
             throw new UpdateCompraException(e.getMessage());
         }
+    }
+    
+    /**
+     * Method that gets a Purchase by id
+     * @param id
+     * @return
+     * @throws CompraException 
+     */
+    @Override
+    public Purchase getCompraById(Integer id) throws CompraException {
+        
+        logger.info("Getting purchase by id");
+        Purchase dato;
+        try{
+          // se busca al usuario a partir del nombre de usuario
+        dato=(Purchase) em.createNamedQuery("findVentaById").setParameter("codigo", id).getSingleResult();
+         logger.info("devoviendo compras del usuario");
+        }
+        catch(Exception e){
+            logger.severe("Fallo en la consulta");
+            logger.severe(e.getMessage());
+            throw new CompraException(e.getMessage());
+        }
+        return dato;
+       
+        
+    }
+
+    @Override
+    public User getUserById(String usuario) throws CompraException{
+        User u = null;
+         logger.info("Buscando usuario");
+        try{
+         u= em.find(User.class, usuario);
+         logger.info("devolviendo usuario");
+        }
+        catch(Exception e){
+            logger.severe("Fallo en la consulta");
+            logger.severe(e.getMessage());
+            throw new CompraException(e.getMessage());
+        }
+        
+        return u ;
     }
 
     
