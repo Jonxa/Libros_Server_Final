@@ -26,6 +26,7 @@ public interface GestorLibrosBeanLocal {
     public void createLibro(Book create) throws CreateLibroException,EntityExistsException ;
     public void deleteLibro(Book delete) throws BorrarLibroException;
     public void updateLibro(Book update) throws ActualizarLibroException;
+    public Book findById(String id)throws BusquedaLibroException;
     public Collection <Book> busquedaPorISBN(String isbn) throws BusquedaLibroException;
     public Collection <Book> busquedaPorTitulo(String titulo) throws BusquedaLibroException;
     public Collection <Book> busquedaPorAutor(String autor) throws BusquedaLibroException;

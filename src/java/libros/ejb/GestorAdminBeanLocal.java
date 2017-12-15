@@ -17,6 +17,6 @@ import libros.entity.Admin;
 @Local
 public interface GestorAdminBeanLocal {
     
-    public Admin getAdmin(String user,String password) throws AdminNotFoundException;
+    public boolean getAdmin(String user,String password) throws AdminNotFoundException;
     
 }

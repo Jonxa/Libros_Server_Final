@@ -14,10 +14,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TransactionRequiredException;
 import libros.entity.Gender;
 import libros.exception.BorrarGeneroException;
-import libros.exception.BorrarLibroException;
+
 import libros.exception.BusquedaGeneroException;
 import libros.exception.CreateGeneroException;
-import libros.exception.CreateLibroException;
+
 
 /**
  * Stateless EJB for managing operations with Gender entities.
