@@ -25,7 +25,7 @@ import javax.persistence.Table;
 @Table(name="Admins",schema="LibrosSL")
 @NamedQuery(
         name="findByCredential",
-        query="Select s from Admin s where s.admin= : admin AND s.password= : password"
+        query="select s from Admin s where s.admin=:admin and s.password=:password"
 )
 public class Admin implements Serializable {
 

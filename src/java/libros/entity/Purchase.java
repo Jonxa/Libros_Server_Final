@@ -43,7 +43,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     ),
       @NamedQuery(
             name="findUserById",
-            query="select p from Purchase p where p.usuario.usuario:usuario order by p.fechaCompra"
+            query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
       )
      
 })

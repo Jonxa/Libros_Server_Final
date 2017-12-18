@@ -20,7 +20,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import libros.ejb.GestorComprasBeanLocal;
 import libros.entity.Purchase;
-import libros.entity.User;
 import libros.exception.CompraException;
 import libros.exception.CreateCompraException;
 import libros.exception.DeleteCompraException;
