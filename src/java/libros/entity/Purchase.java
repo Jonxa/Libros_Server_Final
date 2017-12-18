@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
   *Entity class to store our purchases. 
@@ -30,17 +31,24 @@ import javax.persistence.Table;
  * @author Discos S.L Corporation
  */
 @Entity
-@Table(name="Ventas",schema="LibrosSL")
+@Table(name="purchase",schema="LibrosSL")
 @NamedQueries({
     @NamedQuery(
-            name="findAllVentas",
-            query="select p from Purchase p order by p.fechaCompra"
+            name="findVentaById",
+            query="select p from Purchase p where p.codigo=:codigo order by p.fechaCompra"
     ),
      @NamedQuery(
             name="findVentasByUser",
-            query="select p from Purchase p where p.usuario.usuario:=usuario order by p.fechaCompra"
-    )
+            query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
+    ),
+      @NamedQuery(
+            name="findUserById",
+            query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
+      )
+     
 })
+
+@XmlRootElement
 public class Purchase implements Serializable {
 
     private static final long serialVersionUID = 1L;

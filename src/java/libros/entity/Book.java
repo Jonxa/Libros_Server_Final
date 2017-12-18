@@ -35,19 +35,19 @@ import javax.validation.constraints.Past;
 @NamedQueries({
     @NamedQuery(
         name="findAllLibros",
-        query="Select s from Book s"
+        query="select s from Book s"
     ),
     @NamedQuery(
         name="findLibrosByIsbn",
-         query="Select s from Book s where s.isbn= : isbn"
+         query="select s from Book s where s.isbn=:isbn"
     ),
      @NamedQuery(
         name="findLibrosByTitulo",
-         query="Select s from Book s where s.titulo= : titulo"
+        query="select s from Book s where s.titulo:=titulo"
     ),
     @NamedQuery(
         name="findLibrosByAutor",
-        query="Select s from Book s where s.autor = : autor"
+        query="select s from Book s where s.autor=:autor"
     )
 })
 
