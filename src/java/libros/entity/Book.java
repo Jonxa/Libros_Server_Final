@@ -14,6 +14,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Past;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
    *Entity class to store our books.
@@ -31,15 +32,17 @@ import javax.validation.constraints.Past;
  * @author Discos S.L Corporation
  */
 @Entity
-@Table(name="Libros",schema="LibrosSL")
+@Table(name="book",schema="LibrosSL")
 @NamedQueries({
     @NamedQuery(
         name="findAllLibros",
         query="select s from Book s"
     ),
     @NamedQuery(
-        name="findLibrosByIsbn",
-         query="select s from Book s where s.isbn=:isbn"
+      
+        name="findLibrosContainsIsbn",
+         query="select s from Book s where s.isbn=:isbn" 
+
     ),
      @NamedQuery(
         name="findLibrosByTitulo",
@@ -51,7 +54,7 @@ import javax.validation.constraints.Past;
     )
 })
 
-
+@XmlRootElement
 
 public class Book implements Serializable {
 
@@ -70,7 +73,13 @@ public class Book implements Serializable {
     private Gender genero;
 
 
+     public String getIsbn() {
+        return isbn;
+    }
 
+    public void setisbn(String isbn) {
+        this.isbn = isbn;
+    }
     @Override
     public int hashCode() {
         int hash = 0;

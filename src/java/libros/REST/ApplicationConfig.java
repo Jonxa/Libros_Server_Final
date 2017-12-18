@@ -10,7 +10,8 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author 2dam
+ * @author Jon Xabier Gimenez/Iker Iglesias
+
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
@@ -29,6 +30,9 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+      
+        resources.add(libros.REST.BookFacadeREST.class);
+        resources.add(libros.REST.GenderFacadeREST.class);
         resources.add(libros.REST.PurchaseFacadeREST.class);
         resources.add(libros.REST.UserFacadeREST.class);
     }
