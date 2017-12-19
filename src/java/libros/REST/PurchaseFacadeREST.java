@@ -79,12 +79,14 @@ public class PurchaseFacadeREST  {
             logger.severe(ex.getMessage());
         }
     }
-
+  
+    /*
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Purchase find(@PathParam("id") Integer id) {
         return null;
+    
     }
    
     @GET
@@ -102,6 +104,7 @@ public class PurchaseFacadeREST  {
         }
         return p;
     }
+*/
 
 
 

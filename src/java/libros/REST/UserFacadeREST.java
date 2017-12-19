@@ -51,7 +51,7 @@ public class UserFacadeREST{
     public void remove(@PathParam("id") String id) {
         
     }
-
+ /*
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public User find() {
@@ -65,7 +65,7 @@ public class UserFacadeREST{
     }
 
   
-
+*/
 
    
     

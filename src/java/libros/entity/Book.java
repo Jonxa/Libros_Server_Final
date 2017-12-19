@@ -46,7 +46,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     ),
      @NamedQuery(
         name="findLibrosByTitulo",
-        query="select s from Book s where s.titulo:=titulo"
+        query="select s from Book s where s.titulo=:titulo"
     ),
     @NamedQuery(
         name="findLibrosByAutor",
