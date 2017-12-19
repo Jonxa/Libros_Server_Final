@@ -76,4 +76,18 @@ public class GestorGenerosBean implements GestorGenerosBeanLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public Gender findByID(Integer id) throws BusquedaGeneroException {
+        Gender genero;
+        
+        try{
+            genero=em.find(Gender.class, id);
+        }catch(Exception e){
+            logger.severe("Fallo al devolver genero");
+           logger.severe(e.getMessage());
+           throw new BusquedaGeneroException(e.getMessage());
+        }
+        return genero;
+    }
 }

@@ -19,11 +19,16 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import libros.ejb.GestorGenerosBeanLocal;
 import libros.ejb.GestorLibrosBeanLocal;
 import libros.entity.Book;
+import libros.entity.Gender;
 import libros.exception.ActualizarLibroException;
+import libros.exception.BorrarGeneroException;
 import libros.exception.BorrarLibroException;
+import libros.exception.BusquedaGeneroException;
 import libros.exception.BusquedaLibroException;
+import libros.exception.CreateGeneroException;
 import libros.exception.CreateLibroException;
 
 /**
@@ -33,9 +38,12 @@ import libros.exception.CreateLibroException;
 
 @Path("book")
 public class BookFacadeREST{
-
+    
+  
      private static final Logger logger=Logger.getLogger("libros.REST.BookFacadeREST");
      
+     
+     //Para Libros
      @EJB
      private GestorLibrosBeanLocal ejb;
 
@@ -83,7 +91,7 @@ public class BookFacadeREST{
               logger.severe(ex.getMessage());
          }
     }
-    /*
+    
      @GET
      @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
@@ -100,7 +108,7 @@ public class BookFacadeREST{
          return libro;
     }
     
-    
+    /*
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Collection<Book> findIsbn(@QueryParam ("isbn")String isbn){
@@ -163,4 +171,6 @@ public class BookFacadeREST{
          return discos;
     }
     */ 
+  
+    
 }

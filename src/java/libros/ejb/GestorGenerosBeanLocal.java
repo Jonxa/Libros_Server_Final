@@ -22,4 +22,5 @@ public interface GestorGenerosBeanLocal {
      public Collection <Gender> getAllGeneros() throws BusquedaGeneroException;
      public void createGenero(Gender create) throws CreateGeneroException;
      public void deleteGenero(Gender delete) throws BorrarGeneroException;
+     public Gender findByID(Integer id) throws BusquedaGeneroException;
 }
