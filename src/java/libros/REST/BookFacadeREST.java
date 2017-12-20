@@ -19,16 +19,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import libros.ejb.GestorGenerosBeanLocal;
 import libros.ejb.GestorLibrosBeanLocal;
 import libros.entity.Book;
-import libros.entity.Gender;
 import libros.exception.ActualizarLibroException;
-import libros.exception.BorrarGeneroException;
 import libros.exception.BorrarLibroException;
-import libros.exception.BusquedaGeneroException;
 import libros.exception.BusquedaLibroException;
-import libros.exception.CreateGeneroException;
 import libros.exception.CreateLibroException;
 
 /**
@@ -108,8 +103,8 @@ public class BookFacadeREST{
          return libro;
     }
     
-    /*
-    @GET
+    
+  /*  @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Collection<Book> findIsbn(@QueryParam ("isbn")String isbn){
         Collection<Book> libros = null;
@@ -170,7 +165,7 @@ public class BookFacadeREST{
          }
          return discos;
     }
-    */ 
+    */
   
     
 }
