@@ -148,9 +148,8 @@ public class BookFacadeREST{
          }
          return discos;
     }
-   
+   */
     
-
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Collection<Book> findAll() {
@@ -165,7 +164,7 @@ public class BookFacadeREST{
          }
          return discos;
     }
-    */
+    
   
     
 }

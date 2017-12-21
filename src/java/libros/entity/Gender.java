@@ -28,6 +28,9 @@ import javax.xml.bind.annotation.XmlRootElement;
         name="findAllGeneros",
         query="Select s from Gender s ORDER BY s.codigo"
 )
+
+
+
 @XmlRootElement
 public class Gender implements Serializable {
 

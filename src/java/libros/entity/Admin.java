@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *Entity class to store our admin. 
@@ -27,6 +28,7 @@ import javax.persistence.Table;
         name="findByCredential",
         query="select s from Admin s where s.admin=:admin and s.password=:password"
 )
+@XmlRootElement
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;

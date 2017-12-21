@@ -25,6 +25,7 @@ import libros.exception.CreateGeneroException;
  */
 @Stateless
 public class GestorGenerosBean implements GestorGenerosBeanLocal {
+    
      @PersistenceContext
     private EntityManager em;
     //Logger

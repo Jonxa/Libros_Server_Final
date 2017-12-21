@@ -5,15 +5,7 @@
  */
 package libros.REST;
 
-import java.util.logging.Logger;
-import javax.ejb.EJB;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+
 import libros.ejb.GestorGenerosBeanLocal;
 import libros.entity.Gender;
 import libros.exception.BorrarGeneroException;
@@ -22,7 +14,6 @@ import libros.exception.CreateGeneroException;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.persistence.EntityExistsException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -31,11 +22,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import libros.exception.BusquedaLibroException;
 
 /**
  *
- * @author 2dam
+ * @author Jon Xabier Gimenez
  */
 @Path("gender")
 public class GenderFacadeREST {
@@ -76,12 +66,12 @@ public class GenderFacadeREST {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Gender findByID(@PathParam ("id") Integer id){
         Gender genero = null;
-        logger.info("Buscando libro por codigo");
+        logger.info("Buscando genero por codigo");
          try {
              genero=  ejb.findByID(id);
-             logger.info("Procediendo a devolver libros");
+             logger.info("Procediendo a devolver genero");
          } catch (BusquedaGeneroException ex) {
-              logger.severe("Fallo en la busqueda de libros");
+              logger.severe("Fallo en la busqueda de genero");
               logger.severe(ex.getMessage());
          }
          return genero;
