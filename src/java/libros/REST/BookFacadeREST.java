@@ -104,13 +104,14 @@ public class BookFacadeREST{
     }
     
     
-  /*  @GET
+    @GET
+    @Path("isbn/{isbn}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Collection<Book> findIsbn(@QueryParam ("isbn")String isbn){
+    public Collection<Book> findIsbn(@PathParam ("isbn")String isbn){
         Collection<Book> libros = null;
         logger.info("Buscando libro por ISBN");
          try {
-            libros=  ejb.busquedaPorISBN(isbn);
+             libros=  ejb.busquedaPorISBN(isbn);
              logger.info("Procediendo a devolver libros");
          } catch (BusquedaLibroException ex) {
               logger.severe("Fallo en la busqueda de libros");
@@ -120,8 +121,9 @@ public class BookFacadeREST{
     }
     
     @GET
+    @Path("titulo/{titulo}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Collection<Book> findTitulo(@QueryParam ("titulo") String titulo) {
+    public Collection<Book> findTitulo(@PathParam ("titulo") String titulo) {
         Collection<Book> libros = null;
         logger.info("Buscando libro por titulo");
          try {       
@@ -135,8 +137,9 @@ public class BookFacadeREST{
     }
     
     @GET
+    @Path("editorial/{editorial}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Collection<Book> findEditorial(@QueryParam ("editorial")String editorial) {
+    public Collection<Book> findEditorial(@PathParam ("editorial")String editorial) {
          Collection<Book> discos = null;
          logger.info("Buscando libro por editorial");
          try {
@@ -148,7 +151,7 @@ public class BookFacadeREST{
          }
          return discos;
     }
-   */
+   
     
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})

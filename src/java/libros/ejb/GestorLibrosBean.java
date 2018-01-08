@@ -86,7 +86,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     public void deleteLibro(Book delete) throws BorrarLibroException{
         logger.info("Borrando libro");
         try{
-            em.merge(delete);
+            delete = em.merge(delete);
             em.remove(delete);
             logger.info("Libro borrado");
         }catch(Exception e){
@@ -105,7 +105,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     public void updateLibro(Book update) throws ActualizarLibroException {
         logger.info("Actualizando libro");
         try{
-            if(em.contains(update)){
+            if(!em.contains(update)){
                  em.merge(update);
                 logger.info("Libro Actualizado");  
             }else{

@@ -41,7 +41,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(
       
         name="findLibrosContainsIsbn",
-         query="select s from Book s where s.isbn=:isbn" 
+        query="select s from Book s where s.isbn=:isbn" 
 
     ),
      @NamedQuery(
@@ -77,9 +77,75 @@ public class Book implements Serializable {
         return isbn;
     }
 
-    public void setisbn(String isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
+
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public Float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Float precio) {
+        this.precio = precio;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
+    }
+
+    public Gender getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Gender genero) {
+        this.genero = genero;
+    }
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;
