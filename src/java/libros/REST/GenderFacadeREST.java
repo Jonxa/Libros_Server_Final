@@ -8,9 +8,7 @@ package libros.REST;
 
 import libros.ejb.GestorGenerosBeanLocal;
 import libros.entity.Gender;
-import libros.exception.BorrarGeneroException;
 import libros.exception.BusquedaGeneroException;
-import libros.exception.CreateGeneroException;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -29,54 +27,11 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("gender")
 public class GenderFacadeREST {
- private static final Logger logger=Logger.getLogger("libros.REST.GenderFacadeREST");
+     private static final Logger logger=Logger.getLogger("libros.REST.GenderFacadeREST");
      
      @EJB
      private GestorGenerosBeanLocal ejb;
 
-    @POST
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public void create(Gender entity) {
-        logger.info("Creando Genero");
-         try {
-             ejb.createGenero(entity);
-             logger.info("Genero creado");
-         } catch (CreateGeneroException ex) {
-             logger.severe("No se pudo crear genero");
-         }
-    }
-
-
-    @DELETE
-    @Path("{id}")
-    public void remove(@PathParam("id") Integer id) {
-        logger.info("Borrando genero");
-         try {
-             ejb.deleteGenero(ejb.findByID(id)); 
-             logger.info("Genero borrado");
-         } catch (BorrarGeneroException ex) {
-             logger.severe("Error al borrar");
-         } catch (BusquedaGeneroException ex) {
-             logger.severe("No se encontro el genero");
-         }
-    }
-    
-      @GET
-     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Gender findByID(@PathParam ("id") Integer id){
-        Gender genero = null;
-        logger.info("Buscando genero por codigo");
-         try {
-             genero=  ejb.findByID(id);
-             logger.info("Procediendo a devolver genero");
-         } catch (BusquedaGeneroException ex) {
-              logger.severe("Fallo en la busqueda de genero");
-              logger.severe(ex.getMessage());
-         }
-         return genero;
-    }
-    
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Collection<Gender> findAll() {

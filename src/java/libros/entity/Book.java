@@ -41,16 +41,16 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(
       
         name="findLibrosContainsIsbn",
-        query="select s from Book s where s.isbn=:isbn" 
+        query="select s from Book s where lower(s.isbn) like :isbn" 
 
     ),
      @NamedQuery(
         name="findLibrosByTitulo",
-        query="select s from Book s where s.titulo=:titulo"
+        query="select s from Book s where lower(s.titulo) like :titulo"
     ),
     @NamedQuery(
         name="findLibrosByAutor",
-        query="select s from Book s where s.autor=:autor"
+        query="select s from Book s where lower(s.autor) like :autor"
     )
 })
 

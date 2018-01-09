@@ -5,11 +5,9 @@
  */
 package libros.ejb;
 
-import libros.exception.CreateGeneroException;
 import java.util.Collection;
 import javax.ejb.Local;
 import libros.entity.Gender;
-import libros.exception.BorrarGeneroException;
 import libros.exception.BusquedaGeneroException;
 
 /**
@@ -20,7 +18,4 @@ import libros.exception.BusquedaGeneroException;
 public interface GestorGenerosBeanLocal {
     
      public Collection <Gender> getAllGeneros() throws BusquedaGeneroException;
-     public void createGenero(Gender create) throws CreateGeneroException;
-     public void deleteGenero(Gender delete) throws BorrarGeneroException;
-     public Gender findByID(Integer id) throws BusquedaGeneroException;
 }

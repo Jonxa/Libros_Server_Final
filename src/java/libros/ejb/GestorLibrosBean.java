@@ -152,7 +152,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
          Collection <Book> datos;
         try{
             //funcion contains en mysql si no funciona
-            datos= em.createNamedQuery("findLibrosContainsIsbn").setParameter("isbn","%"+isbn+"%").getResultList();
+            datos= em.createNamedQuery("findLibrosContainsIsbn").setParameter("isbn","%"+isbn.toLowerCase()+"%").getResultList();
         }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());
@@ -172,7 +172,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
         logger.info("Buscando por nombre");
          Collection <Book> datos;
         try{
-            datos= em.createNamedQuery("findLibrosByTitulo").setParameter("titulo","%"+titulo+"%").getResultList();
+            datos= em.createNamedQuery("findLibrosByTitulo").setParameter("titulo","%"+titulo.toLowerCase()+"%").getResultList();
         }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());
@@ -191,7 +191,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
          logger.info("Buscando por autor");
          Collection <Book> datos;
          try{
-           datos= em.createNamedQuery("findLibrosByAutor").setParameter("autor","%"+autor+"%").getResultList();
+           datos= em.createNamedQuery("findLibrosByAutor").setParameter("autor","%"+autor.toLowerCase()+"%").getResultList();
          }catch(Exception e){
              logger.severe("Fallo en la consulta");
              logger.severe(e.getMessage());

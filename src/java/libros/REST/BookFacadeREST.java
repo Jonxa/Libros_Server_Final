@@ -38,7 +38,7 @@ public class BookFacadeREST{
      private static final Logger logger=Logger.getLogger("libros.REST.BookFacadeREST");
      
      
-     //Para Libros
+     
      @EJB
      private GestorLibrosBeanLocal ejb;
 
@@ -127,7 +127,7 @@ public class BookFacadeREST{
         Collection<Book> libros = null;
         logger.info("Buscando libro por titulo");
          try {       
-             libros = ejb.busquedaPorISBN(titulo);
+             libros = ejb.busquedaPorTitulo(titulo);
              logger.info("Procediendo a devolver libros");
          }catch (BusquedaLibroException ex) {
               logger.severe("Fallo en la busqueda de libros");
@@ -137,13 +137,13 @@ public class BookFacadeREST{
     }
     
     @GET
-    @Path("editorial/{editorial}")
+    @Path("autor/{autor}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Collection<Book> findEditorial(@PathParam ("editorial")String editorial) {
+    public Collection<Book> findAutor(@PathParam ("autor")String autor) {
          Collection<Book> discos = null;
-         logger.info("Buscando libro por editorial");
+         logger.info("Buscando libro por Autor");
          try {
-             discos=  ejb.busquedaPorISBN(editorial);
+             discos=  ejb.busquedaPorAutor(autor);
              logger.info("Procediendo a devolver libros");
          } catch (BusquedaLibroException ex) {
               logger.severe("Fallo en la busqueda de libros");
