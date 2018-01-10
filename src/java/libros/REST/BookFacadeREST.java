@@ -36,8 +36,6 @@ public class BookFacadeREST{
   
      private static final Logger logger=Logger.getLogger("libros.REST.BookFacadeREST");
      
-     
-     
      @EJB
      private GestorLibrosBeanLocal ejb;
 

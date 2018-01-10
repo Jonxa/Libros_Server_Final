@@ -33,7 +33,7 @@ public class AdminFacadeREST {
 
     
     @GET
-    @Path("{id}")
+     @Path("admi/pass")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Boolean find(@PathParam("admi") String admi,@PathParam("pass") String pass) {
         Boolean existe=false;
