@@ -12,7 +12,7 @@ import libros.exception.BusquedaGeneroException;
 
 /**
  *
- * @author 2dam
+ * @author Jon Xabier Gimenez
  */
 @Local
 public interface GestorGenerosBeanLocal {

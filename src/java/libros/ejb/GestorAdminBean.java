@@ -19,7 +19,8 @@ import libros.exception.AdminNotFoundException;
  */
 @Stateless
 public class GestorAdminBean implements GestorAdminBeanLocal {
-     @PersistenceContext
+    
+    @PersistenceContext
     private EntityManager em;
     //Logger
     private static final Logger logger=Logger.getLogger("libros.ejb.GestorAdminBean");
@@ -29,10 +30,9 @@ public class GestorAdminBean implements GestorAdminBeanLocal {
         Admin ad=null;
         Boolean existe=false;
         try{
-        ad= (Admin) em.createNamedQuery("findByCredential").setParameter("admin",user).setParameter("password", password).getSingleResult();
-        if(ad!=null){
-            existe=true;
-        }
+            ad= (Admin) em.createNamedQuery("findByCredential").setParameter("admin",user).setParameter("password", password).getSingleResult();
+            if(ad!=null) existe=true;
+        
         }catch(Exception e){
            logger.severe("Fallo en la verificacion");
            logger.severe(e.getMessage());
