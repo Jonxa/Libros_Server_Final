@@ -21,7 +21,7 @@ import libros.exception.BusquedaGeneroException;
 @Stateless
 public class GestorGenerosBean implements GestorGenerosBeanLocal {
     
-     @PersistenceContext
+    @PersistenceContext
     private EntityManager em;
     //Logger
     private static final Logger logger=Logger.getLogger("libros.ejb.GestorGenerosBean");

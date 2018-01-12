@@ -5,7 +5,6 @@
  */
 package libros.REST;
 
-
 import javax.ejb.Stateless;
 
 import javax.ws.rs.GET;
@@ -25,24 +24,22 @@ import libros.exception.AdminNotFoundException;
 @Path("admin")
 public class AdminFacadeREST {
 
-     private static final Logger logger=Logger.getLogger("libros.REST.AdminFacadeREST");
-     
-     @EJB
-     private GestorAdminBeanLocal ejb;
+    private static final Logger logger = Logger.getLogger("libros.REST.AdminFacadeREST");
 
+    @EJB
+    private GestorAdminBeanLocal ejb;
 
-    
     @GET
-     @Path("admi/pass")
+    @Path("{admi}/{pass}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Boolean find(@PathParam("admi") String admi,@PathParam("pass") String pass) {
-        Boolean existe=false;
-        try{
-            existe=ejb.getAdmin(admi, pass);
-        }catch(AdminNotFoundException ex){
+    public Boolean find(@PathParam("admi") String admi, @PathParam("pass") String pass) {
+        Boolean existe = false;
+        try {
+            existe = ejb.getAdmin(admi, pass);
+        } catch (AdminNotFoundException ex) {
             logger.severe("Fallo al comprobar administrador");
             logger.severe(ex.getMessage());
-        } 
-       return existe;
+        }
+        return existe;
     }
 }

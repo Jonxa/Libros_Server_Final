@@ -5,7 +5,6 @@
  */
 package libros.REST;
 
-
 import libros.ejb.GestorGenerosBeanLocal;
 import libros.entity.Gender;
 import libros.exception.BusquedaGeneroException;
@@ -23,26 +22,24 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("gender")
 public class GenderFacadeREST {
-    
-    
-     private static final Logger logger=Logger.getLogger("libros.REST.GenderFacadeREST");
-     
-     @EJB
-     private GestorGenerosBeanLocal ejb;
+
+    private static final Logger logger = Logger.getLogger("libros.REST.GenderFacadeREST");
+
+    @EJB
+    private GestorGenerosBeanLocal ejb;
 
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Collection<Gender> findAll() {
         Collection generos = null;
         logger.info("Buscando todos los generos");
-         try {
-             generos= ejb.getAllGeneros();
-             logger.info("Procediendo a devolver generos");
-         } catch (BusquedaGeneroException ex) {
+        try {
+            generos = ejb.getAllGeneros();
+            logger.info("Procediendo a devolver generos");
+        } catch (BusquedaGeneroException ex) {
             logger.severe("Fallo en la busqueda de generos");
             logger.severe(ex.getMessage());
-         }
-         return generos;
+        }
+        return generos;
     }
-    
 }

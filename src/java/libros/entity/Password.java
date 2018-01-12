@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
   *Entity class to store our users passwords. 
@@ -31,6 +32,7 @@ import javax.persistence.Table;
             query="select p from Password p where p.usuario=:usuario and p.password=:password"
     )
 })
+@XmlRootElement
 public class Password implements Serializable {
 
     private static final long serialVersionUID = 1L;
