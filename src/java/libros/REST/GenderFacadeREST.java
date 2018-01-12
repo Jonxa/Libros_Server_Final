@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -41,5 +42,22 @@ public class GenderFacadeREST {
             logger.severe(ex.getMessage());
         }
         return generos;
+    }
+    
+    
+    @GET
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Gender findByID(@PathParam("id") String id) {
+        Gender genero = null;
+        logger.info("Buscando genero por ID");
+        try {
+            genero = ejb.findById(id);
+            logger.info("Procediendo a devolver genero");
+        } catch (BusquedaGeneroException ex) {
+            logger.severe("Fallo en la busqueda de genero");
+            logger.severe(ex.getMessage());
+        }
+        return genero;
     }
 }

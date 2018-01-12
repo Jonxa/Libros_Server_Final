@@ -47,7 +47,7 @@ public class BookFacadeREST {
         } catch (CreateLibroException ex) {
             logger.severe("Fallo en la creacion");
             logger.severe(ex.getMessage());
-        } catch (EntityExistsException ex) {
+        } catch (EntityExistsException ex)   {
             logger.info("Entidad existente");
             logger.severe(ex.getMessage());
         }

@@ -18,4 +18,5 @@ import libros.exception.BusquedaGeneroException;
 public interface GestorGenerosBeanLocal {
     
      public Collection <Gender> getAllGeneros() throws BusquedaGeneroException;
+     public Gender findById(String id)throws BusquedaGeneroException;
 }

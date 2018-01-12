@@ -31,11 +31,11 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
       
-        resources.add(libros.REST.AdminFacadeREST.class);
         resources.add(libros.REST.BookFacadeREST.class);
         resources.add(libros.REST.GenderFacadeREST.class);
         resources.add(libros.REST.PurchaseFacadeREST.class);
         resources.add(libros.REST.UserFacadeREST.class);
+    
     }
     
 }

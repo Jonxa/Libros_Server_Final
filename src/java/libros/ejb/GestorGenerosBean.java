@@ -39,4 +39,21 @@ public class GestorGenerosBean implements GestorGenerosBeanLocal {
        }
        return datos;
     }
+    
+    @Override
+    public Gender findById(String id)throws BusquedaGeneroException{
+        logger.info("Busqueda exacta por codigo");
+        Gender genero;
+        try{
+            genero=em.find(Gender.class, id);
+            logger.info("Encontrado");
+        }catch(Exception ex){
+            logger.severe("Fallo en la busqueda");
+            logger.severe(ex.getMessage());
+            throw new BusquedaGeneroException(ex.getMessage());
+        }
+
+        return genero;
+    }
+    
 }
