@@ -26,7 +26,7 @@ import libros.entity.User;
  */
 @Path("user")
 public class UserFacadeREST{
-
+      
     private static final Logger logger =Logger.getLogger("libros.REST.UserFacadeREST");
     
     @EJB

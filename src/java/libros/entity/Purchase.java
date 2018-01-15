@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -48,7 +50,7 @@ import javax.xml.bind.annotation.XmlRootElement;
      
 })
 
-@XmlRootElement
+@XmlRootElement(name="purchase")
 public class Purchase implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -58,9 +60,59 @@ public class Purchase implements Serializable {
     @ManyToOne
     private User usuario;
     private Date fechaCompra;
-    private Float precioTotal;
+   
     @ManyToMany
+    @JoinTable(name="purchases_book",
+            joinColumns=
+                    @JoinColumn(name="purchase_ID", referencedColumnName="codigo"),
+            inverseJoinColumns=
+                    @JoinColumn(name="book_ID", referencedColumnName="isbn")
+    )
     private Collection<Book> ejemplares;
+    
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+
+    public Date getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
+
+    public Float getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(Float precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+    
+    public Collection<Book> getEjemplares() {
+        return ejemplares;
+    }
+    
+    
+    public void setEjemplares(Collection<Book> ejemplares) {
+        this.ejemplares = ejemplares;
+    }
+    private Float precioTotal;
+    
+   
     
 
   

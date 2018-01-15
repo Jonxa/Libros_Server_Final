@@ -76,7 +76,9 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
     @Override
     public void deleteCompra(Purchase purchases) throws DeleteCompraException {
          logger.info("Deleting purchase");
+         
         try{
+              purchases=em.merge(purchases);
               em.remove(purchases);
               logger.info("Compra borrada");
         }catch(Exception e){
@@ -95,10 +97,11 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
     public void updateCompra(Purchase purchases) throws UpdateCompraException {
          logger.info("Updating purchase");
             try{
-              if(em.contains(purchases)){
+              if(!em.contains(purchases)){
                 em.merge(purchases);
                 logger.info("Compra modificada");
               }
+              
 
         }catch(Exception e){
             logger.severe("Error al modificar compra");

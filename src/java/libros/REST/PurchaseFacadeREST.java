@@ -80,18 +80,28 @@ public class PurchaseFacadeREST  {
         }
     }
   
-    /*
+    
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Purchase find(@PathParam("id") Integer id) {
-        return null;
+         Purchase pur = null;
+        logger.info("Buscando comjpra por id");
+         try {
+             pur=  ejb.getCompraById(id);
+             logger.info("Procediendo a devolver compra");
+         } catch (CompraException ex) {
+              logger.severe("Fallo en la busqueda de compra");
+              logger.severe(ex.getMessage());
+         }
+         return pur;
     
     }
    
     @GET
+    @Path("usuario/{usuario}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Purchase> findAll(@QueryParam("usuario") String usuario){
+    public List<Purchase> findAll(@PathParam("usuario") String usuario){
         logger.info("Finding user purchases");
         List <Purchase> p = null;
         try {
@@ -104,7 +114,7 @@ public class PurchaseFacadeREST  {
         }
         return p;
     }
-*/
+
 
 
 

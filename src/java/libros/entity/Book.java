@@ -6,9 +6,11 @@
 package libros.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -71,6 +73,10 @@ public class Book implements Serializable {
     private Integer stock;
     @ManyToOne
     private Gender genero;
+    
+    
+    @ManyToMany(mappedBy="ejemplares")
+    private Collection<Purchase> purchases;
 
 
      public String getIsbn() {
