@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -35,22 +34,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="purchase",schema="LibrosSL")
 @NamedQueries({
-    @NamedQuery(
+/*    @NamedQuery(
             name="findVentaById",
             query="select p from Purchase p where p.codigo=:codigo order by p.fechaCompra"
-    ),
+    ),*/
      @NamedQuery(
             name="findVentasByUser",
             query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
     ),
       @NamedQuery(
-            name="findUserById",
+            name="findPurchasesByUser",
             query="select p from Purchase p where p.usuario=:usuario order by p.fechaCompra"
       )
      
 })
-
-@XmlRootElement(name="purchase")
+@XmlRootElement
 public class Purchase implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -62,13 +60,8 @@ public class Purchase implements Serializable {
     private Date fechaCompra;
    
     @ManyToMany
-    @JoinTable(name="purchases_book",
-            joinColumns=
-                    @JoinColumn(name="purchase_ID", referencedColumnName="codigo"),
-            inverseJoinColumns=
-                    @JoinColumn(name="book_ID", referencedColumnName="isbn")
-    )
-    private Collection<Book> ejemplares;
+    @JoinTable(name="purchase_book",schema="LibrosSL")
+    private Collection<Book> books;
     
     public Integer getCodigo() {
         return codigo;
@@ -102,13 +95,13 @@ public class Purchase implements Serializable {
         this.precioTotal = precioTotal;
     }
     
-    public Collection<Book> getEjemplares() {
-        return ejemplares;
+    public Collection<Book> getBooks() {
+        return books;
     }
     
     
-    public void setEjemplares(Collection<Book> ejemplares) {
-        this.ejemplares = ejemplares;
+    public void setBooks(Collection<Book> books) {
+        this.books = books;
     }
     private Float precioTotal;
     

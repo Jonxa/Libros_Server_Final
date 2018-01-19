@@ -39,7 +39,7 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
         Collection <Purchase> datos;
         try{
           // se busca al usuario a partir del nombre de usuario
-        datos=em.createNamedQuery("findVentasByUser").setParameter("usuario", usuario).getResultList();
+        datos=em.createNamedQuery("findPurchasesByUser").setParameter("usuario", usuario).getResultList();
         }
         catch(Exception e){
             logger.severe("Fallo en la consulta");
@@ -123,7 +123,8 @@ public class GestorComprasBean implements GestorComprasBeanLocal {
         Purchase dato;
         try{
           // se busca al usuario a partir del nombre de usuario
-        dato=(Purchase) em.createNamedQuery("findVentaById").setParameter("codigo", id).getSingleResult();
+        dato=em.find(Purchase.class, id);
+        //dato=(Purchase) em.createNamedQuery("findVentaById").setParameter("codigo", id).getSingleResult();
          logger.info("devoviendo compras del usuario");
         }
         catch(Exception e){

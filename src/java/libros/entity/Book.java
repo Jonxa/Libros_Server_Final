@@ -75,8 +75,8 @@ public class Book implements Serializable {
     private Gender genero;
     
     
-    @ManyToMany(mappedBy="ejemplares")
-    private Collection<Purchase> purchases;
+    //@ManyToMany(mappedBy="books")
+    //private Collection<Purchase> purchases;
 
 
      public String getIsbn() {
