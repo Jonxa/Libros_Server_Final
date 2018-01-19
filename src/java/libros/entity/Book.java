@@ -71,6 +71,7 @@ public class Book implements Serializable {
     private Date fechaPublicacion;
     private Float precio;
     private Integer stock;
+    
     @ManyToOne
     private Gender genero;
     

@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -57,12 +58,26 @@ public class Purchase implements Serializable {
     private Integer codigo;
     @ManyToOne
     private User usuario;
-    private Date fechaCompra;
+    private Float precioTotal;
+     @OneToMany(mappedBy = "purchase")
+     private Collection<Ejemplar> ejemplares;
+     private Date fechaCompra;
+
+    public Collection<Ejemplar> getEjemplares() {
+        return ejemplares;
+    }
+
+    public void setEjemplares(Collection<Ejemplar> ejemplares) {
+        this.ejemplares = ejemplares;
+    }
    
+   /*
     @ManyToMany
     @JoinTable(name="purchase_book",schema="LibrosSL")
     private Collection<Book> books;
     
+*/
+     
     public Integer getCodigo() {
         return codigo;
     }
@@ -94,7 +109,7 @@ public class Purchase implements Serializable {
     public void setPrecioTotal(Float precioTotal) {
         this.precioTotal = precioTotal;
     }
-    
+    /*
     public Collection<Book> getBooks() {
         return books;
     }
@@ -103,7 +118,8 @@ public class Purchase implements Serializable {
     public void setBooks(Collection<Book> books) {
         this.books = books;
     }
-    private Float precioTotal;
+*/
+ 
     
    
     
