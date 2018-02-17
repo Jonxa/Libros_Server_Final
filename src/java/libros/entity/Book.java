@@ -67,7 +67,6 @@ public class Book implements Serializable {
     private String autor;
     private String editorial;
     private String descripcion;
-    @Past
     private Date fechaPublicacion;
     private Float precio;
     private Integer stock;
