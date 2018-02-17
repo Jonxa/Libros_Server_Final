@@ -6,19 +6,19 @@
 package libros.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -54,29 +54,37 @@ public class Purchase implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer codigo;
+    @Column(name="fechaCompra",columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    //insertable = false,updatable = false
+    private Date fechaCompra;
     @ManyToOne
     private User usuario;
     private Float precioTotal;
-     @OneToMany(mappedBy = "purchase")
-     private Collection<Ejemplar> ejemplares;
-     private Date fechaCompra;
+    private Integer unidades;
+    @ManyToOne
+    private Book book;
+     
 
-    public Collection<Ejemplar> getEjemplares() {
-        return ejemplares;
+     
+     public Integer getUnidades() {
+        return unidades;
     }
 
-    public void setEjemplares(Collection<Ejemplar> ejemplares) {
-        this.ejemplares = ejemplares;
+    public void setUnidades(Integer unidades) {
+        this.unidades = unidades;
     }
    
-   /*
-    @ManyToMany
-    @JoinTable(name="purchase_book",schema="LibrosSL")
-    private Collection<Book> books;
-    
-*/
+     
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+   
      
     public Integer getCodigo() {
         return codigo;
@@ -109,16 +117,6 @@ public class Purchase implements Serializable {
     public void setPrecioTotal(Float precioTotal) {
         this.precioTotal = precioTotal;
     }
-    /*
-    public Collection<Book> getBooks() {
-        return books;
-    }
-    
-    
-    public void setBooks(Collection<Book> books) {
-        this.books = books;
-    }
-*/
  
     
    

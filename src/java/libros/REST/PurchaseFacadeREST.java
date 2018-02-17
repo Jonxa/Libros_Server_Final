@@ -39,7 +39,7 @@ public class PurchaseFacadeREST  {
     private GestorComprasBeanLocal ejb;
 
     @POST
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML})
     public void create(Purchase entity) {
         logger.info("Creating purchase");
         try {
@@ -53,7 +53,7 @@ public class PurchaseFacadeREST  {
     }
 
     @PUT
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML})
     public void update(Purchase entity) {
         logger.info("Updating purchase");
         try {
@@ -83,7 +83,7 @@ public class PurchaseFacadeREST  {
     
     @GET
     @Path("{id}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML})
     public Purchase find(@PathParam("id") Integer id) {
          Purchase pur = null;
         logger.info("Buscando comjpra por id");
@@ -100,13 +100,12 @@ public class PurchaseFacadeREST  {
    
     @GET
     @Path("usuario/{usuario}")
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_XML})
     public List<Purchase> findAll(@PathParam("usuario") String usuario){
         logger.info("Finding user purchases");
         List <Purchase> p = null;
         try {
-           
-           p=(List<Purchase>) ejb.getAllCompras(ejb.getUserById(usuario));
+              p=(List<Purchase>) ejb.getAllCompras(ejb.getUserById(usuario));
         } catch (CompraException ex) {
               logger.severe("Fallo en la consulta");
               logger.severe(ex.getMessage());
