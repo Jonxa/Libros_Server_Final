@@ -18,8 +18,12 @@ import libros.exception.UserException;
  */
 @Local
 public interface GestorUserBeanLocal {
-    public  boolean getUser(String user,String password) throws UserException;
+
+    public boolean getUser(String user, String password) throws UserException;
+
     public void createUser(User user) throws CreateUserException;
+
     public void deleteUser(User user) throws DeleteUserException;
+
     public void updateUser(User user) throws UpdateUserException;
 }

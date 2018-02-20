@@ -22,10 +22,15 @@ import libros.exception.UpdateCompraException;
 public interface GestorComprasBeanLocal {
 
     public Collection<Purchase> getAllCompras(User usuario) throws CompraException;
-    public Purchase getCompraById(Integer id ) throws CompraException;
+
+    public Purchase getCompraById(Integer id) throws CompraException;
+
     public User getUserById(String usuario) throws CompraException;
+
     public void createCompra(Purchase purchases) throws CreateCompraException;
+
     public void deleteCompra(Purchase purchases) throws DeleteCompraException;
+
     public void updateCompra(Purchase purchases) throws UpdateCompraException;
-    
+
 }

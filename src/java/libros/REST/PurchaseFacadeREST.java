@@ -16,7 +16,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import libros.ejb.GestorComprasBeanLocal;
 import libros.entity.Purchase;
@@ -29,12 +28,11 @@ import libros.exception.UpdateCompraException;
  *
  * @author Iker Iglesias
  */
-
 @Path("purchase")
-public class PurchaseFacadeREST  {
+public class PurchaseFacadeREST {
 
-    private static final Logger logger =Logger.getLogger("libros.REST.PurchaseFacadeREST");
-    
+    private static final Logger logger = Logger.getLogger("libros.REST.PurchaseFacadeREST");
+
     @EJB
     private GestorComprasBeanLocal ejb;
 
@@ -47,8 +45,7 @@ public class PurchaseFacadeREST  {
         } catch (CreateCompraException ex) {
             logger.severe("Error al crear compra");
             logger.severe(ex.getMessage());
-           
-           
+
         }
     }
 
@@ -73,49 +70,44 @@ public class PurchaseFacadeREST  {
         } catch (CompraException ex) {
             logger.severe("Error al cargar compra");
             logger.severe(ex.getMessage());
-            
+
         } catch (DeleteCompraException ex) {
             logger.severe("Error al borrar compra");
             logger.severe(ex.getMessage());
         }
     }
-  
-    
+
     @GET
     @Path("{id}")
     @Produces({MediaType.APPLICATION_XML})
     public Purchase find(@PathParam("id") Integer id) {
-         Purchase pur = null;
+        Purchase pur = null;
         logger.info("Buscando comjpra por id");
-         try {
-             pur=  ejb.getCompraById(id);
-             logger.info("Procediendo a devolver compra");
-         } catch (CompraException ex) {
-              logger.severe("Fallo en la busqueda de compra");
-              logger.severe(ex.getMessage());
-         }
-         return pur;
-    
+        try {
+            pur = ejb.getCompraById(id);
+            logger.info("Procediendo a devolver compra");
+        } catch (CompraException ex) {
+            logger.severe("Fallo en la busqueda de compra");
+            logger.severe(ex.getMessage());
+        }
+        return pur;
+
     }
-   
+
     @GET
     @Path("usuario/{usuario}")
     @Produces({MediaType.APPLICATION_XML})
-    public List<Purchase> findAll(@PathParam("usuario") String usuario){
+    public List<Purchase> findAll(@PathParam("usuario") String usuario) {
         logger.info("Finding user purchases");
-        List <Purchase> p = null;
+        List<Purchase> p = null;
         try {
-              p=(List<Purchase>) ejb.getAllCompras(ejb.getUserById(usuario));
+            p = (List<Purchase>) ejb.getAllCompras(ejb.getUserById(usuario));
         } catch (CompraException ex) {
-              logger.severe("Fallo en la consulta");
-              logger.severe(ex.getMessage());
-            
+            logger.severe("Fallo en la consulta");
+            logger.severe(ex.getMessage());
+
         }
         return p;
     }
 
-
-
-
-    
 }

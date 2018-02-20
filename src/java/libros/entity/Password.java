@@ -7,8 +7,6 @@ package libros.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -16,20 +14,20 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
-  *Entity class to store our users passwords. 
+ * Entity class to store our users passwords.
  * <ul>
-  * <li><strong>usuario:</strong> Name that identifies the user.</li>
-  * <li><strong>password:</strong> Password for the user. </li>
-  * </ul>
+ * <li><strong>usuario:</strong> Name that identifies the user.</li>
+ * <li><strong>password:</strong> Password for the user. </li>
+ * </ul>
+ *
  * @author Discos S.L Corporation
  */
 @Entity
-@Table(name="Passwords",schema="LibrosSL")
+@Table(name = "Passwords", schema = "LibrosSL")
 @NamedQueries({
-    
     @NamedQuery(
-            name="findPasswordByUser",
-            query="select p from Password p where p.usuario=:usuario and p.password=:password"
+            name = "findPasswordByUser",
+            query = "select p from Password p where p.usuario=:usuario and p.password=:password"
     )
 })
 @XmlRootElement
@@ -80,5 +78,5 @@ public class Password implements Serializable {
     public String toString() {
         return "libros.entity.Password[ usuario=" + usuario + " ]";
     }
-    
+
 }

@@ -37,7 +37,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     /**
      * Get all the books stored on the database.
      * @return Book Collection
-     * @throws LibroException 
+     * @throws BusquedaLibroException
      */
     @Override
     public Collection <Book> getAllLibros() throws BusquedaLibroException{
@@ -143,7 +143,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     /**
      * Find a book that contains the partial isbn(String) 
      * @param isbn
-     * @return Collection <Book>
+     * @return Collection book
      * @throws BusquedaLibroException 
      */
     @Override
@@ -164,7 +164,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     /**
      * Find a book that constains the partial titulo(String)
      * @param titulo
-     * @return Collection <Book>
+     * @return Collection book
      * @throws BusquedaLibroException 
      */
     @Override
@@ -183,7 +183,7 @@ public class GestorLibrosBean implements GestorLibrosBeanLocal {
     /**
      * Find a book that constains the partial autor(String) 
      * @param autor
-     * @return Collection <Book>
+     * @return Collection book
      * @throws BusquedaLibroException 
      */
     @Override

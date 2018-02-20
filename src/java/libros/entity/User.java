@@ -13,26 +13,25 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 /**
- *Entity class to store our users data. 
+ * Entity class to store our users data.
  * <ul>
-  * <li><strong>usuario:</strong> Login name of the user.</li>
-  * <li><strong>nombre:</strong> Name of the user. </li>
-  * <li><strong>apellidos:</strong> Last names of the user. </li>
-  * <li><strong>direccion:</strong> Direction of the user. </li>
-  * <li><strong>telefono:</strong> Phone number of the user </li>
-  * <li><strong>email:</strong> Email of the user </li>
-  * </ul>
+ * <li><strong>usuario:</strong> Login name of the user.</li>
+ * <li><strong>nombre:</strong> Name of the user. </li>
+ * <li><strong>apellidos:</strong> Last names of the user. </li>
+ * <li><strong>direccion:</strong> Direction of the user. </li>
+ * <li><strong>telefono:</strong> Phone number of the user </li>
+ * <li><strong>email:</strong> Email of the user </li>
+ * </ul>
+ *
  * @author Discos S.L Corporation
  */
 @Entity
-@Table(name="User",schema="LibrosSL")
+@Table(name = "User", schema = "LibrosSL")
 @NamedQueries({
- 
-     @NamedQuery(
-            name="findUserData",
-            query="select u from User u where u.usuario=:usuario "
+    @NamedQuery(
+            name = "findUserData",
+            query = "select u from User u where u.usuario=:usuario "
     )
 })
 
@@ -96,8 +95,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-
-
     @Override
     public int hashCode() {
         int hash = 0;
@@ -105,8 +102,9 @@ public class User implements Serializable {
         return hash;
     }
 
-        /**
-     *  Compares the codigo and email
+    /**
+     * Compares the codigo and email
+     *
      * @param object
      * @return boolean
      */
@@ -117,7 +115,7 @@ public class User implements Serializable {
             return false;
         }
         User other = (User) object;
-        if ((this.usuario == null && other.usuario != null) || (this.usuario != null && !this.usuario.equals(other.usuario))||(this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
+        if ((this.usuario == null && other.usuario != null) || (this.usuario != null && !this.usuario.equals(other.usuario)) || (this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
             return false;
         }
         return true;
@@ -127,5 +125,5 @@ public class User implements Serializable {
     public String toString() {
         return "libros.entity.User[ usuario=" + usuario + " ]";
     }
-    
+
 }
